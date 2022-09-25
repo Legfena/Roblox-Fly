@@ -1,0 +1,5 @@
+game:GetService("StarterGui"):SetCore("SendNotification", { 
+	Title = "Note (IMPORTANT)";
+	Text = "I Do not own any of the scripts! Its A Hub that collects them";
+	Icon = "rbxthumb://type=Asset&id=5107182114&w=150&h=150"})
+Duration = 10;
