@@ -1,0 +1,342 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Skynet Collection (All you need) ", "BloodTheme")
+
+local Main = Window:NewTab("Utilities")
+local MainSection = Main:NewSection("Utilities")
+
+
+--Admins
+
+MainSection:NewButton("Unnamed ESP", "Loads ESP", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/ic3w0lf22/Unnamed-ESP/master/UnnamedESP.lua'))()
+end)
+
+MainSection:NewButton("Domain X", "Key req", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexsoftworks/DomainX/main/source',true))()
+end)
+
+MainSection:NewButton("Infinite Yield", "Loads Infinite Yield meh", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+
+MainSection:NewButton("CMD X", "Loads CMD X", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source", true))()
+end)
+
+MainSection:NewButton("Dark Dex", "Loads Dark Dex", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SpaceSpiffer/Scripts/main/Script5", true))()
+end)
+
+MainSection:NewButton("Fate's Admin", "Loads fates admin", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))();
+end)
+
+--Player
+
+local Player = Window:NewTab("Player")
+local PlayerSection = Player:NewSection("Player")
+
+
+PlayerSection:NewButton("Reset Walkspeed and jump", "Self explained", function()
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+end)
+
+
+PlayerSection:NewButton("Flight F", "Self explained", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/pS5BBKH9'),true))()
+end)
+
+PlayerSection:NewButton("No Fall Damage", "Works on NDS", function()
+    game.Workspace[game.Players.LocalPlayer.Name].FallwwDamageScript:Destroy()
+end)
+
+PlayerSection:NewSlider("Walkspeed", "Go crazy", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+PlayerSection:NewSlider("Jump", "Go Trampoline", 500, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+PlayerSection:NewSlider("Field Of View", "Go crazy", 500, 70, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Workspace.CurrentCamera.FieldOfView = s
+end)
+
+PlayerSection:NewSlider("Walkspeed+", "Go crazier", 1000000000000, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+PlayerSection:NewToggle("Super Human ", "Go fast and go high", function(state)
+    if state then
+       game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 120
+     game.Players.LocalPlayer.Character.Humanoid.JumpPower = 120
+    else
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+       game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+    end
+end)
+
+local General = Window:NewTab("Universal")
+local FESSection = General :NewSection("Universal")
+
+
+FESSection:NewButton("Click Fling", "Click to people and it will follow them and fling", function()
+    loadstring(game:HttpGetAsync("https://bit.ly/34oqvdH"))()
+end)
+
+FESSection:NewButton("Telekinesis", "Telekinesisssisssiisisi", function()
+    loadstring(game:HttpGetAsync(("https://pastebin.com/raw/qtZcirVq"),true))()
+end)
+
+FESSection:NewButton("Grammar V2", "Grammarly", function()
+    shared.CustomCorrections = {
+        ["examplething12"] = "hello" -- if you say "examplething12" it will become hello
+    }
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/eosuwu/boblox/main/autogremer.lua"))()
+end)
+
+FESSection:NewButton("Ragdoll Death", "Reset to be ragdoll", function()
+    loadstring(game:HttpGetAsync(("https://pastebin.com/raw/KRbW6nNC"),true))()
+end)
+
+-- Other
+
+local FE = Window:NewTab("Universal GUIs")
+local FESSection = FE:NewSection("Universal GUIs")
+
+
+FESSection:NewButton("Teleport GUI FE", "Teleport to players", function()
+    loadstring(game:HttpGet(("https://gist.githubusercontent.com/DagerFild/b4776075a0d26ef04394133ee6bd2081/raw/0ed51ac94057d2d9a9f00e1b037b9011c76ca54a/tpGUI"),true))()
+end)
+
+FESSection:NewButton("JobID Gui", "Joink the JobID", function()
+    loadstring(game:HttpGet(("https://pastebin.com/raw/8YvzKyR9"),true))()
+end)
+
+FESSection:NewButton("Fling GUI FE", "Flinglol", function()
+    loadstring(game:HttpGet(("https://pastebin.com/raw/FhaCvvzC"),true))()
+end)
+
+FESSection:NewButton("Server Finder FE", "Servers brrrr", function()
+    loadstring(game:HttpGet("https://www.scriptblox.com/raw/Server-Browser_80", true))();
+end)
+
+FESSection:NewButton("Stream Sniper", "snipe", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Blissful4992/Miscellaneous/main/StreamSniper.lua", true))();
+end)
+
+FESSection:NewButton("Trolling GUI", "Troll", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Blukez/Scripts/main/UTG%20V3%20RAW"))()
+end)
+
+FESSection:NewButton("Pendulum HUB", "animation", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Tescalus/Pendulum-Hubs-Source/main/Pendulum%20Hub%20V5.lua"))()
+end)
+
+FESSection:NewButton("Universal GUI", "Has a few things", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Dvrknvss/UniversalFEScriptHub/main/Script'))()
+end)
+
+FESSection:NewButton("Chat Hax", "Troll people", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/ant-7802/--/main/straightmilk.lua'))()
+end)
+
+FESSection:NewButton("MrDestroyer V2", "Fe Hub", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/MrDestroyerSkid/Project-Destroyer/main/Destroyer"))()
+end)
+
+FESSection:NewButton("Lost Point", "Fe Hub", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/JunglePush/LostPoint/main/LostPointScript"))()
+end)
+
+FESSection:NewButton("Harked GUI", "Fe Hub", function()
+    loadstring(game:HttpGet(("https://pastebin.com/raw/s3KSr9qw"),true))()
+end)
+
+FESSection:NewButton("Flo GUI", "Fe GUI", function()
+    loadstring(game:HttpGet(("https://pastebin.com/raw/Ly6p6Qms"),true))()
+end)
+
+
+--Hubs
+
+local Hubs = Window:NewTab("Hubs")
+local HubSection = Hubs :NewSection("Hubs")
+
+HubSection:NewButton("Unfair HUB", "30+ Games TWW IS NUTS", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/rblxscriptsnet/unfair/main/rblxhub.lua'),true))()
+end)
+
+HubSection:NewButton("VG Hub", "100+ Games has TWW", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub'))()
+end)
+
+HubSection:NewButton("Warrior Hub", "Small Hub has Booga Booga", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/WarriorCrystal/WarriorHub/main/Load.lua"))()
+end)
+
+HubSection:NewButton("Lazy Hub", "Well known hub", function()
+    repeat wait() until game:IsLoaded()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LioK251/RbScripts/main/lazyhub.lua"))()
+end)
+
+--Games
+
+local Games = Window:NewTab("Games")
+
+local GameSection = Games :NewSection("Universal")
+
+FESSection:NewButton("Aimware", "aim", function()
+    loadstring(game:HttpGet"https://raw.githubusercontent.com/Wheeleee/AIMWARE/main/Startup")()
+end)
+
+local GameSection = Games :NewSection("Starving Artists")
+
+
+GameSection:NewButton("Starving Artist GUI", "Get robux", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Jeux45/Starving-Artist-script/main/Script", true))()
+end)
+
+GameSection:NewButton("Starving Artist Steal", "Get even MORE robux", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Legfena/Roblox-Fly/main/Starving%20Artists", true))()
+end)
+
+
+local GameSection = Games :NewSection("Build A Boat")
+
+GameSection:NewButton("Vynixius BABFT GUI", "GUI For babft", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Build%20A%20Boat%20For%20Treasure/Script.lua"))()
+end)
+
+GameSection:NewButton("BABFT Auto Build", "Auto build", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/StenDirt/Trash-Game/main/Script.lua"))()
+end)
+
+GameSection:NewButton("BABFT Red Hub", "Loads Red hub", function()
+    _G.RedGUI = true
+_G.Theme = "Aqua" -- Must disable or remove _G.RedGUI to use
+--Themes: Light, Dark, Mocha, Aqua and Jester
+_G.V3rmillion = true
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/BuildABoatForTreasure.lua"))()
+end)
+
+GameSection:NewButton("BABFT Ruby Hub", "Loads ruby hub", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Deni210/BABFT/main/Ruby%20Hub", true))()
+end)
+
+local GameSection = Games :NewSection("Arsenal")
+
+GameSection:NewButton("Arsenal GUI", "GUI For Arsenal", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/MQLCAsnx"))()
+end)
+
+GameSection:NewButton("Bolts Hub", "GUI For Arsenal", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/fusiongreg/BoltsHubV5/main/BoltsHubV5"))()
+end)
+
+GameSection:NewButton("Arsenal DexHub", "GUI For Arsenal", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/HonestlyDex/DexHub/main/V3.lua"))()
+end)
+
+GameSection:NewButton("Arsenal Loodie", "GUI For Arsenal", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Loodie2021/Procom-Arsenal-Script/main/script.lua"))()
+end)
+
+local GameSection = Games :NewSection("Da Hood")
+
+GameSection:NewButton("Eternal GUI", "GUI For Da Hood", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/JsfuayASbsfuWGakCmhzVwaKJsfuayASbsfuWGa/EternalJNshAIw-mpaAkw-VkbgA/main/eternal.lua')))()
+end)
+
+GameSection:NewButton("Con.txt GUI", "GUI For Da Hood", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/JsfuayASbsfuWGakCmhzVwaKJsfuayASbsfuWGa/dasdasdasdas/main/ConTXT"))()
+end)
+
+GameSection:NewButton("Late GUI", "GUI For Da Hood", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Impulseonyoutube/scripts/main/dahood"))()
+end)
+
+GameSection:NewButton("NixWareGUI", "GUI For Da Hood", function()
+    loadstring(game:HttpGet('https://ekso.gq/raw/relases/nixware.lua'))()
+end)
+
+local GameSection = Games :NewSection("Madcity")
+
+GameSection:NewButton("Ruby Hub", "Madcity", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Deni210/madcity/main/Ruby%20Hub%20v1.3", true))()
+end)
+
+local GameSection = Games :NewSection("Ragdoll Engine")
+
+GameSection:NewButton("Ragdoll Engine GUI", "Ragdoll Engine gui", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/T7weKqag'),true))()
+end)
+
+GameSection:NewButton("Cryptonic GUI", "Ragdoll Engine gui", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/martinelcrac/cryptonichub/main/Ragdollengine.lua'))()
+end)
+
+
+local GameSection = Games :NewSection("MM2")
+
+GameSection:NewButton("XennyWare", "GUI For MM2", function()
+    repeat wait() until game.Players.LocalPlayer.Character
+url = "https://raw.githubusercontent.com/xennyy/Xenny-Ware/main/loader.lua"
+loadstring(game:HttpGet(url))()
+end)
+
+
+local GameSection = Games :NewSection("Phantom Forces")
+
+GameSection:NewButton("Hitbox", "GUI For pf", function()
+    local Size=8
+    local Target="Torso"
+    game.RunService.RenderStepped:Connect(function()
+        for _,a in pairs(game.Workspace.Players:GetChildren())do
+            if a.Name~=game.Players.LocalPlayer.Team.Name then
+                for _,b in pairs(a:GetChildren())do
+                    b[Target].Size=Vector3.new(Size,Size,Size)
+                end
+            end
+        end
+    end)
+end)
+
+GameSection:NewButton("Ceri Legit", "GUI For pf", function()
+    loadstring(game:HttpGet("https://ducksite.xyz/ceri/main.lua"))()
+end)
+
+local GameSection = Games :NewSection("Natural Disaster Survival")
+
+GameSection:NewButton("NDS GUI", "GUI For NDS", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/9NLK7/93qjoadnlaknwldk/main/main'))()
+end)
+
+GameSection:NewButton("NDS Utilities", "GUI For NDS", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/2dgeneralspam1/scripts-and-stuff/master/scripts/LoadstringUjHI6RQpz2o8", true))()
+end)
+
+local GameSection = Games :NewSection("Doors")
+
+GameSection:NewButton("D4RK FCKER", "GUI For NDS", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/D4rk9690/My-scripts/main/Doorsgui", true))()
+end)
+
+GameSection:NewButton("Vynixius Doors", "GUI For NDS", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Doors/Script.lua"))()
+end)
+
+--Settings
+
+local Settings = Window:NewTab("Settings")
+local SettingSection = Settings :NewSection("Settings")
+
+SettingSection:NewKeybind("UI Toggle", "Close/open Skynet", Enum.KeyCode.RightShift, function()
+	Library:ToggleUI()
+end)
+
+SettingSection:NewLabel("Made By GeGU")
