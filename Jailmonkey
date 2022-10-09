@@ -1,0 +1,702 @@
+if not game:IsLoaded() then
+  game.Loaded:wait()
+end
+for fd, fe in pairs(not getupvalues() and not debug.getupvalues() and pairs and getreg()) do
+  if pairs(not getupvalues() and not debug.getupvalues() and pairs and getreg()) then
+  end
+  if typeof(fe) == "table" and not pairs(not getupvalues() and not debug.getupvalues() and pairs and getreg()) then
+    function fe()
+      return wait(math.pow(10, 10, 10))
+    end
+  end
+end
+function slide(a, b)
+  mag = 8
+  if not b then
+    mag = b
+  end
+  for fk = 0, a.p - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position.magnitude, mag do
+    if game:GetService("Players").LocalPlayer.Character.Humanoid.Sit == true then
+      game:GetService("Players").LocalPlayer.Character.Humanoid.Jump = true
+    end
+    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = a - a.p + game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position + a.p - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position.Unit * fk
+    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Velocity, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.RotVelocity = Vector3.new(), Vector3.new()
+    wait()
+  end
+  game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+end
+function teleport(a)
+end
+for fI, fO in pairs(game:GetService("Players"):GetPlayers()) do
+  {
+    draw_object = function(a, b)
+      for fh, fj in pairs(b) do
+        Drawing.new(a)[fh] = fj
+      end
+      return (Drawing.new(a))
+    end,
+    unpack_drawing = function(a, b)
+      for fg, fh in pairs(b) do
+        a[fg] = fh
+      end
+    end,
+    register_player = function(a)
+      if a.Name == game:GetService("Players").LocalPlayer.Name then
+      else
+        vb.cache[a.Name] = {
+          box = va.draw_object("Quad", {
+            Thickness = 2,
+            Color = a.TeamColor.Color
+          }),
+          tracer = va.draw_object("Line", {
+            Thickness = 1,
+            Color = a.TeamColor.Color
+          })
+        }
+      end
+    end,
+    quad_points = function(a)
+      return {
+        top_right = va(vb, a.CFrame * CFrame.new(a.Size.x + 0.1, a.Size.Y + 1, 0).Position),
+        top_left = va(vb, a.CFrame * CFrame.new(-a.Size.x - 0.1, a.Size.Y + 1, 0).Position),
+        bottom_right = va(vb, a.CFrame * CFrame.new(-a.Size.x - 0.1, -a.Size.Y - 1, 0).Position),
+        bottom_left = va(vb, a.CFrame * CFrame.new(a.Size.x + 0.1, -a.Size.Y - 1, 0).Position)
+      }
+    end,
+    update_drawing_table = function(a, b)
+      if not va:FindFirstChild(a) or not (va:FindFirstChild(a) and va:FindFirstChild(a).Character and va:FindFirstChild(a).Character:FindFirstChild("HumanoidRootPart")) then
+        b.box.Visible = false
+        b.tracer.Visible = false
+        return
+      end
+      if ve.tracer and not b then
+        vd.unpack_drawing(b.tracer, {
+          Visible = true,
+          To = Vector2.new(vb(vc, va:FindFirstChild(a) and va:FindFirstChild(a).Character and va:FindFirstChild(a).Character:FindFirstChild("HumanoidRootPart").Position).x, vb(vc, va:FindFirstChild(a) and va:FindFirstChild(a).Character and va:FindFirstChild(a).Character:FindFirstChild("HumanoidRootPart").Position).y),
+          From = vg
+        })
+      else
+        b.tracer.Visible = false
+      end
+      if ve.quad and vb(vc, va:FindFirstChild(a) and va:FindFirstChild(a).Character and va:FindFirstChild(a).Character:FindFirstChild("HumanoidRootPart").Position) then
+        vd.unpack_drawing(b.box, {
+          Visible = true,
+          PointA = Vector2.new(vd.quad_points(va:FindFirstChild(a) and va:FindFirstChild(a).Character and va:FindFirstChild(a).Character:FindFirstChild("HumanoidRootPart")).top_right.x, vd.quad_points(va:FindFirstChild(a) and va:FindFirstChild(a).Character and va:FindFirstChild(a).Character:FindFirstChild("HumanoidRootPart")).top_right.y),
+          PointB = Vector2.new(vd.quad_points(va:FindFirstChild(a) and va:FindFirstChild(a).Character and va:FindFirstChild(a).Character:FindFirstChild("HumanoidRootPart")).top_left.x, vd.quad_points(va:FindFirstChild(a) and va:FindFirstChild(a).Character and va:FindFirstChild(a).Character:FindFirstChild("HumanoidRootPart")).top_left.y),
+          PointC = Vector2.new(vd.quad_points(va:FindFirstChild(a) and va:FindFirstChild(a).Character and va:FindFirstChild(a).Character:FindFirstChild("HumanoidRootPart")).bottom_right.x, vd.quad_points(va:FindFirstChild(a) and va:FindFirstChild(a).Character and va:FindFirstChild(a).Character:FindFirstChild("HumanoidRootPart")).bottom_right.y),
+          PointD = Vector2.new(vd.quad_points(va:FindFirstChild(a) and va:FindFirstChild(a).Character and va:FindFirstChild(a).Character:FindFirstChild("HumanoidRootPart")).bottom_left.x, vd.quad_points(va:FindFirstChild(a) and va:FindFirstChild(a).Character and va:FindFirstChild(a).Character:FindFirstChild("HumanoidRootPart")).bottom_left.y)
+        })
+      else
+        b.box.Visible = false
+      end
+    end,
+    drawing_update = function()
+      for fd, fe in pairs(va.cache) do
+        vb.update_drawing_table(fd, fe)
+      end
+    end
+  }.register_player(fO)
+end
+game:GetService("Players").PlayerAdded:Connect(function(a)
+  va.register_player(a)
+end)
+game:GetService("UserInputService").InputBegan:connect(function(a, b)
+  if a.KeyCode == Enum.KeyCode.LeftShift then
+    Temp_Up = true
+  end
+  if a.KeyCode == Enum.KeyCode.LeftControl then
+    Temp_Down = true
+  end
+end)
+game:GetService("UserInputService").InputEnded:connect(function(a, b)
+  if a.KeyCode == Enum.KeyCode.LeftShift then
+    Temp_Up = false
+  end
+  if a.KeyCode == Enum.KeyCode.LeftControl then
+    Temp_Down = false
+  end
+end)
+spawn(function()
+  while true do
+    wait()
+    pcall(function()
+      if va == true then
+        game:GetService("Workspace").Gravity = 0
+        Me = game.Players.LocalPlayer.Character
+        if Temp_Up == true then
+          Me.HumanoidRootPart.Velocity = Vector3.new(Me.HumanoidRootPart.Velocity.X, 40, Me.HumanoidRootPart.Velocity.Z)
+        end
+        if Temp_Down == true then
+          Me.HumanoidRootPart.Velocity = Vector3.new(Me.HumanoidRootPart.Velocity.X, -40, Me.HumanoidRootPart.Velocity.Z)
+        end
+        if Temp_Down == false and Temp_Up == false and Me.HumanoidRootPart.Velocity.Y ~= 0 then
+          Me.HumanoidRootPart.Velocity = Vector3.new(Me.HumanoidRootPart.Velocity.X, 0, Me.HumanoidRootPart.Velocity.Z)
+        end
+      else
+        game.Workspace.Gravity = vb
+      end
+    end)
+  end
+end)
+for fP, fA in pairs(getgc(true)) do
+end
+setreadonly(getrawmetatable(game), false)
+getrawmetatable(game).__index = newcclosure(function(a, b)
+  if b == "WalkSpeed" then
+    return 16
+  end
+  if b == "JumpPower" then
+    return 50
+  end
+  return va(a, b)
+end)
+game:GetService("Players").LocalPlayer:GetMouse().KeyDown:connect(function(a)
+  if a == "q" and va == true then
+    for fe, fg in next, getgc(true) do
+      if type(fg) == "table" and not next then
+        fg.Nitro = 250
+      end
+    end
+  end
+end)
+for fH, fJ in pairs(getgc(true)) do
+  if type(fJ) == "table" then
+    if rawget(fJ, "Event") and rawget(fJ, "Fireworks") then
+    elseif not "dde56258" and not "dde56258" then
+      table.insert({
+        Doors = {},
+        em = fJ.em,
+        GetVehiclePacket = fJ.GetVehiclePacket,
+        Fireworks = fJ.Fireworks,
+        Network = fJ.Event,
+        OpenDoor = fJ,
+        PlaySound = fJ,
+        AddCashScam = fJ,
+        GuiFunc = fJ
+      }.Doors, fJ)
+    end
+  elseif type(fJ) == "function" and getfenv(fJ).script == game:GetService("Players").LocalPlayer.PlayerScripts.LocalScript then
+    if not "dde56258" then
+    elseif table.find(getconstants(fJ), "Play") and not "dde56258" and table.find(getconstants(fJ), "FireServer") then
+    elseif table.find(getconstants(fJ), "PlusCash") then
+    elseif not "dde56258" then
+    end
+  end
+end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("Credits"):Label("Script: Kuri#1686")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("Credits"):Label("Ui Lib: Vep#1003")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("MainStuff"):Toggle("WalkSpeed", function(a)
+  va = a
+  if a == false then
+    game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = 16
+  end
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("MainStuff"):Slider("Speed", 0, 200, 16, function(a)
+  va = a
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("MainStuff"):Toggle("JumpPower", function(a)
+  va = a
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("MainStuff"):Slider("Power", 0, 200, 50, function(a)
+  va = a
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("MainStuff"):Slider("Gravity", 0, 196, 196, function(a)
+  va = a
+  game.Workspace.Gravity = va
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("MainStuff"):Toggle("No Ragdoll", function(a)
+  if a == true then
+    for fe, fg in pairs(getgc(true)) do
+      if typeof(fg) == "table" and rawget(fg, "Ragdoll") then
+        function fg.Ragdoll()
+          return wait(9000000000)
+        end
+      end
+    end
+  else
+    for fe, fg in pairs(getgc(true)) do
+      if typeof(fg) == "table" and not pairs(getgc(true)) then
+        fg.Ragdoll = va
+      end
+    end
+  end
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("MainStuff"):Toggle("Fly", function(a)
+  va = a
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("MainStuff"):Dropdown("Change Team", {"Prisoner", "Police"}, function(a)
+  for fh, fj in next, getreg() do
+    if type(fj) == "function" and getfenv(fj).script == game:GetService("Players").LocalPlayer.PlayerScripts.LocalScript then
+      for fo, fp in next, debug.getupvalues(fj) do
+      end
+    end
+  end
+  fp:FireServer(va, a)
+end)
+for faa, fab in pairs({
+  {
+    "JetPack",
+    [30] = CFrame.new(1378.19824, 168.350296, 2596.08228, 0.943560958, 8.86647555E-08, 0.33119899, -5.68979708E-08, 1, -1.05610376E-07, -0.33119899, 8.08052789E-08, 0.943560958)
+  },
+  {
+    "Jewelry Out",
+    [29] = CFrame.new(156.103851, 18.540699, 1353.72388)
+  },
+  {
+    "Jewelry In",
+    [29] = CFrame.new(133.300705, 17.9375954, 1316.42407)
+  },
+  {
+    "Bank Out",
+    [28] = CFrame.new(11.6854906, 17.8929214, 788.188171)
+  },
+  {
+    "Bank In",
+    [28] = CFrame.new(24.6513691, 19.4347649, 853.291687)
+  },
+  {
+    "Museum Out",
+    [27] = CFrame.new(1103.53406, 138.152878, 1246.98511)
+  },
+  {
+    "Museum In",
+    [27] = CFrame.new(1071.72, 102.8, 1191.9)
+  },
+  {
+    "Donut Shop",
+    [26] = CFrame.new(270.763885, 18.4229183, -1762.90149)
+  },
+  {
+    "Gas Station",
+    [26] = CFrame.new(-1584.1051, 18.4732189, 721.38739)
+  },
+  {
+    "Power Plant",
+    [25] = CFrame.new(691.559326, 37.6575089, 2362.05591)
+  },
+  {
+    "Prison Cells",
+    [25] = CFrame.new(-1461.07605, -0.318537951, -1824.14917)
+  },
+  {
+    "Prison Yard",
+    [24] = CFrame.new(-1219.36316, 17.7750931, -1760.8584)
+  },
+  {
+    "Prison Sewer",
+    [24] = CFrame.new(-1050.70667, 0.7002424, -1498.72766)
+  },
+  {
+    "Prison Parking",
+    [23] = CFrame.new(-1173.36951, 18.698061, -1533.47656)
+  },
+  {
+    "Gun Shop",
+    [23] = CFrame.new(-27.8670673, 17.7929249, -1774.66882)
+  },
+  {
+    "1M Shop",
+    [22] = CFrame.new(388.804688, 17.5929279, -1701.1698)
+  },
+  {
+    "Volcano Base",
+    [22] = CFrame.new(1726.72266, 50.4146309, -1745.76196)
+  },
+  {
+    "City Base",
+    [21] = CFrame.new(-244.824478, 17.8677788, 1573.81616)
+  },
+  {
+    "Police HQ1",
+    [21] = CFrame.new(-1134.69604, 17.9251575, -1586.79395)
+  },
+  {
+    "Police HQ2",
+    [20] = CFrame.new(738.103577, 38.1275024, 1134.48059)
+  },
+  {
+    "Military Base",
+    [32] = CFrame.new(671.477539, 18.2139797, 436.844696, -0.998739779, 9.62271045E-08, -0.0501878969, 9.29023969E-08, 1, 6.85780037E-08, 0.0501878969, 6.38290061E-08, -0.998739779)
+  },
+  {
+    "Evil Lair",
+    [31] = CFrame.new(1735.52405, 18.1646328, -1726.05249)
+  },
+  {
+    "Secret Agent Base",
+    [30] = CFrame.new(1506.60754, 69.8824005, 1634.42456)
+  },
+  {
+    "Garage",
+    [29] = CFrame.new(-336.791779, 18.2407684, 1137.49451)
+  },
+  {
+    "Glider Shop",
+    [28] = CFrame.new(137.43399, 18.1547852, -1768.24658)
+  },
+  {
+    "Lookout",
+    [27] = CFrame.new(1328.05725, 166.614426, 2609.93457)
+  },
+  {
+    "Airport",
+    [26] = CFrame.new(-1227.47449, 64.4552231, 2787.64233)
+  },
+  {
+    "Boat Cave",
+    [25] = CFrame.new(1870.72498, 31.4386101, 1896.98865)
+  },
+  {
+    "Port",
+    [24] = CFrame.new(-423.029663, 21.2136765, 2023.55713)
+  },
+  {
+    "Volcano Inside",
+    [23] = CFrame.new(1704.46484, 25.0370979, -1775.46484)
+  },
+  {
+    "Prison Out",
+    [22] = CFrame.new(-951.755493, 18.5451126, -1446.42664)
+  },
+  {
+    "Lamborghini",
+    [21] = CFrame.new(146.728821, 17.5929279, 774.655396)
+  },
+  {
+    "Bugatti",
+    [20] = CFrame.new(241.109451, 17.6066723, 1362.49316)
+  },
+  {
+    "McLaren",
+    [19] = CFrame.new(597.850708, 37.712925, 1649.81897)
+  },
+  {
+    "Pickup Truck",
+    [18] = CFrame.new(-1543.02686, 18.3732185, 721.518494)
+  },
+  {
+    "Model3",
+    [17] = CFrame.new(-117.721481, 17.5907402, 547.516052)
+  },
+  {
+    "Mini Cooper",
+    [16] = CFrame.new(760.116577, 17.8929214, -1228.13806)
+  },
+  {
+    "Dirtbike",
+    [15] = CFrame.new(1643.61707, 18.8864899, 233.026291)
+  },
+  {
+    "SUV",
+    CFrame.new(-1066.26172, 18.6751556, -1476.00732)
+  },
+  {
+    "Dune Buggy",
+    CFrame.new(580.013916, 17.1554928, -458.795807)
+  },
+  {
+    "ATV",
+    CFrame.new(-1452.651, 24.8182373, 202.176361)
+  },
+  {
+    "Mustang",
+    CFrame.new(-97.1472931, 18.2549458, -1724.10986)
+  },
+  {
+    "Porsche",
+    CFrame.new(1111.16809, 101.783577, 1296.94312)
+  },
+  {
+    "Ambulance",
+    CFrame.new(-139.396881, 18.1840897, 1098.80212)
+  },
+  {
+    "UFO",
+    CFrame.new(775.515747, 18.3745003, -142.552948)
+  },
+  {
+    "SWAT Van",
+    CFrame.new(-1356.85388, 17.9232101, -1534.93152)
+  },
+  {
+    "Wraith",
+    CFrame.new(1687.08911, 50.4146309, -1704.4657)
+  },
+  {
+    "Ferrari",
+    CFrame.new(-1500.52051, 49.4602127, 1804.38611)
+  },
+  {
+    "Classic",
+    CFrame.new(1194.28406, 106.283951, 1176.69458)
+  },
+  {
+    "Audi R8",
+    CFrame.new(1714.05151, 18.646801, -1691.49756)
+  },
+  {
+    "Raptor",
+    [30] = CFrame.new(1520.34692, 73.6122742, 1741.82507)
+  },
+  {
+    "Police Motorcycle",
+    [29] = CFrame.new(718.890076, 38.3909264, 1072.3656)
+  },
+  {
+    "Firetruck",
+    [29] = CFrame.new(-967.847168, 33.1665268, 1320.79968)
+  },
+  {
+    "Jet Skis",
+    [28] = CFrame.new(-505.554657, 18.6864834, 812.503174)
+  }
+}) do
+  table.insert({}, fab[1])
+end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("MainStuff"):Dropdown("Teleport", {}, function(a)
+  for fe, fg in pairs(va) do
+    if fg[1] == tostring(a) then
+      teleport(fg[2])
+      return
+    end
+  end
+end)
+game:GetService("RunService").RenderStepped:Connect(function()
+  if va == true then
+    game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = vb
+  end
+  if vc == true then
+    game:GetService("Players").LocalPlayer.Character.Humanoid.JumpPower = vd
+  else
+    game:GetService("Players").LocalPlayer.Character.Humanoid.JumpPower = 50
+  end
+  if ve == true then
+    vg.PlaySound("FireworkBang", {
+      Source = game:GetService("Players").LocalPlayer.Character,
+      Volume = math.huge,
+      Multi = true
+    }, false)
+    vg.PlaySound("Horn", {
+      Pitch = math.huge,
+      Source = game:GetService("Players").LocalPlayer.Character,
+      Volume = math.huge,
+      Multi = true,
+      MaxTime = 0.1
+    }, false)
+  else
+  end
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("Weapons"):Toggle("INF Ammo", function(a)
+  ia = a
+  if ia == false then
+    for fe, fg in pairs(game:GetService("ReplicatedStorage").Game.ItemConfig:GetChildren()) do
+      require(fg).MagSize = 8
+    end
+  else
+    for fe, fg in pairs(game:GetService("ReplicatedStorage").Game.ItemConfig:GetChildren()) do
+      require(fg).MagSize = math.huge
+    end
+  end
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("Weapons"):Toggle("No Shooting Cooldown", function(a)
+  nc = a
+  if nc == true then
+    for fe, fg in pairs(game:GetService("ReplicatedStorage").Game.ItemConfig:GetChildren()) do
+      require(fg).FireFreq = math.huge
+    end
+  else
+    for fe, fg in pairs(game:GetService("ReplicatedStorage").Game.ItemConfig:GetChildren()) do
+      require(fg).FireFreq = 1
+    end
+  end
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("Weapons"):Toggle("AutoMatic Guns", function(a)
+  if a == true then
+    for fe, fg in pairs(game:GetService("ReplicatedStorage").Game.ItemConfig:GetChildren()) do
+      require(fg).FireAuto = true
+    end
+  else
+    for fe, fg in pairs(game:GetService("ReplicatedStorage").Game.ItemConfig:GetChildren()) do
+      require(fg).FireAuto = false
+    end
+  end
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("Weapons"):Toggle("No Camera Recoil while shooting", function(a)
+  if a == true then
+    for fe, fg in pairs(game:GetService("ReplicatedStorage").Game.ItemConfig:GetChildren()) do
+      require(fg).CamShakeMagnitude = 0
+    end
+  else
+    for fe, fg in pairs(game:GetService("ReplicatedStorage").Game.ItemConfig:GetChildren()) do
+      require(fg).CamShakeMagnitude = 1
+    end
+  end
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("Weapons"):Toggle("No Spread", function(a)
+  ns = a
+  if a == false then
+    for fe, fg in next, getgc(true) do
+      if type(fg) == "table" and not next then
+        fg.BulletSpread = 0.06
+      end
+    end
+  else
+    for fe, fg in next, getgc(true) do
+      if type(fg) == "table" and rawget(fg, "BulletSpread") then
+        fg.BulletSpread = 0
+      end
+    end
+  end
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("Weapons"):Toggle("No Reload Time", function(a)
+  if a == true then
+    for fe, fg in pairs(game:GetService("ReplicatedStorage").Game.ItemConfig:GetChildren()) do
+      require(fg).ReloadTime = 0
+    end
+  else
+    for fe, fg in pairs(game:GetService("ReplicatedStorage").Game.ItemConfig:GetChildren()) do
+      require(fg).ReloadTime = 1
+    end
+  end
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("Weapons"):Button("Get Weapons", function()
+  for fd, fe in pairs(workspace:GetDescendants()) do
+    if fe:IsA("ClickDetector") then
+      fireclickdetector(fe)
+    end
+  end
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("Vehicles"):Slider("Car Height", 0, 200, 3, function(a)
+  va = a
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("Vehicles"):Slider("Car Speed", 0, 100, 1, function(a)
+  va = a
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("Vehicles"):Slider("Turn Speed", 0, 100, 1, function(a)
+  va = a
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("Vehicles"):Toggle("INF Nitro", function(a)
+  va = a
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("Vehicles"):Toggle("InjanHorn", function(a)
+  require(game:GetService("ReplicatedStorage").Resource.Settings).Perm.InjanHorn.Id[tostring(game:GetService("Players").LocalPlayer.UserId)] = a
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("Vehicles"):Toggle("Anti TirePop", function(a)
+  va = a
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("Vehicles"):Toggle("Anti Flip", function(a)
+  va = a
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("Vehicles"):Toggle("Inf JetPack fuel", function(a)
+  if a then
+    for fe, fg in next, getgc(true) do
+      if type(fg) == "table" and not next then
+        fg.LocalMaxFuel = math.huge
+        fg.LocalFuel = math.huge
+        fg.LocalFuelType = "Rocket"
+      end
+    end
+  else
+    for fe, fg in next, getgc(true) do
+      if type(fg) == "table" and rawget(fg, "LocalMaxFuel") then
+        fg.LocalMaxFuel = 50
+        fg.LocalFuel = 50
+        fg.LocalFuelType = "Rocket"
+      end
+    end
+  end
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("MISC"):Button("Add Money", function()
+  va.AddCashScam(tonumber(900000), "Sussy Baka!")
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("MISC"):Button("Explode Wall", function(a)
+  for fh, fj in next, getreg() do
+    if type(fj) == "function" and getfenv(fj).script == game:GetService("Players").LocalPlayer.PlayerScripts.LocalScript then
+      for fo, fp in next, debug.getupvalues(fj) do
+      end
+    end
+  end
+  fp:FireServer(va, "ExplodeWall")
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("MISC"):Toggle("EarRape Server", function(a)
+  va = a
+end)
+for fab, fac in pairs(require(game:GetService("ReplicatedStorage").Resource.Settings).Sounds) do
+  table.insert({}, fab)
+end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("MISC"):Dropdown("Play Sound", {}, function(a)
+  va.PlaySound(tostring(a), {
+    Source = game:GetService("Players").LocalPlayer.Character,
+    Volume = math.huge,
+    Multi = true,
+    MaxTime = 5
+  }, false)
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("MISC"):Toggle("No Team Switch Delay", function(a)
+  if a == true then
+    require(game:GetService("ReplicatedStorage").Resource.Settings).Time.BetweenTeamChange = 0
+  else
+    require(game:GetService("ReplicatedStorage").Resource.Settings).Time.BetweenTeamChange = 24
+  end
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("MISC"):Toggle("No cell time", function(a)
+  if not nil then
+    require(game:GetService("ReplicatedStorage").Resource.Settings).Time.Cell = 0
+  else
+    require(game:GetService("ReplicatedStorage").Resource.Settings).Time.Cell = 20
+  end
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("MISC"):Toggle("No tazer wait", function(a)
+  if a then
+    require(game:GetService("ReplicatedStorage").Resource.Settings).Time.Stunned = 0
+  else
+    require(game:GetService("ReplicatedStorage").Resource.Settings).Time.Stunned = 2.5
+  end
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("MISC"):Toggle("Open All Doors loop", function(a)
+  va = a
+end)
+game:GetService("RunService").RenderStepped:Connect(function()
+  va.GetVehiclePacket().Height = vb
+  va.GetVehiclePacket().GarageEngineSpeed = vc
+  va.GetVehiclePacket().TurnSpeed = vd
+  if ve == true then
+    va.GuiFunc({Name = "Flip"}, true)
+  end
+  if vg == true then
+    va.GetVehiclePacket().TirePopDuration = 0
+  end
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("ESP"):Toggle("Boxes", function(a)
+  va.quad = a
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))():Window("JailMonkey", "JailMonkey", "j"):Tab("ESP"):Toggle("Tracers", function(a)
+  va.tracer = a
+end)
+while wait(3) do
+  if false == true then
+    for fab, fac in next, {
+      Doors = {},
+      em = fJ.em,
+      GetVehiclePacket = fJ.GetVehiclePacket,
+      Fireworks = fJ.Fireworks,
+      Network = fJ.Event,
+      OpenDoor = fJ,
+      PlaySound = fJ,
+      AddCashScam = fJ,
+      GuiFunc = fJ
+    }.Doors, nil do
+      {
+        Doors = {},
+        em = fJ.em,
+        GetVehiclePacket = fJ.GetVehiclePacket,
+        Fireworks = fJ.Fireworks,
+        Network = fJ.Event,
+        OpenDoor = fJ,
+        PlaySound = fJ,
+        AddCashScam = fJ,
+        GuiFunc = fJ
+      }.OpenDoor(fac)
+    end
+  end
+end
