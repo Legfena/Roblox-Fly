@@ -1,0 +1,1022 @@
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Advance R2.b", HidePremium = false, IntroText = "Advance", IntroIcon = 'rbxassetid://11214793861', IntroEnabled = true,  SaveConfig = true,  ConfigFolder = "Advance"})
+
+--Values
+
+
+
+--Functions
+
+
+
+
+--Utilities--
+
+local UtilsTab = Window:MakeTab({
+	Name = "Utilities",
+	Icon = "rbxassetid://11214793861",
+	PremiumOnly = false
+})
+
+UtilsTab:AddLabel("Admins")
+
+UtilsTab:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+  	end    
+})
+
+UtilsTab:AddButton({
+	Name = "CMD-X",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source", true))()
+  	end    
+})
+
+UtilsTab:AddButton({
+	Name = "Fate's Admin",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))();
+  	end    
+})
+
+local Section = UtilsTab:AddSection({
+	Name = ""
+})
+
+UtilsTab:AddLabel("Utility")
+
+UtilsTab:AddButton({
+	Name = "Domain X",
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexsoftworks/DomainX/main/source',true))()
+  	end    
+})
+
+UtilsTab:AddButton({
+	Name = "Synergy",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/sy-nn/synergy/main/utilities",true))()
+  	end    
+})
+
+UtilsTab:AddButton({
+	Name = "Unnamed ESP",
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/ic3w0lf22/Unnamed-ESP/master/UnnamedESP.lua'))()
+  	end    
+})
+
+UtilsTab:AddButton({
+	Name = "Orca",
+	Callback = function()
+		loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/orca/master/public/latest.lua"))()	
+  	end    
+})
+
+local Section = UtilsTab:AddSection({
+	Name = ""
+})
+
+UtilsTab:AddLabel("Spies")
+
+UtilsTab:AddButton({
+	Name = "Hydroxide",
+	Callback = function()
+		local owner = "Upbolt"
+		local branch = "revision"
+		
+		local function webImport(file)
+			return loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/%s/Hydroxide/%s/%s.lua"):format(owner, branch, file)), file .. '.lua')()
+		end
+		
+		webImport("init")
+		webImport("ui/main")
+  	end    
+})
+
+UtilsTab:AddButton({
+	Name = "Simple Spy",
+	Callback = function()
+		loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
+  	end    
+})
+
+UtilsTab:AddButton({
+	Name = "Turtle Spy",
+	Callback = function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/BDhSQqUU", true))()
+  	end    
+})
+
+
+--Local Player--
+
+local PlayerTab = Window:MakeTab({
+	Name = "LocalPlayer",
+	Icon = "rbxassetid://11214965259",
+	PremiumOnly = false
+})
+
+PlayerTab:AddSlider({
+	Name = "FOV",
+	Min = 70,
+	Max = 120,
+	Default = 70,
+	Color = Color3.fromRGB(50,205,50),
+	Increment = 1,
+	ValueName = "FOV",
+	Callback = function(s)
+        game.Workspace.CurrentCamera.FieldOfView = s
+	end    
+})
+
+PlayerTab:AddSlider({
+	Name = "Walkspeed",
+	Min = 16,
+	Max = 500,
+	Default = 16,
+	Color = Color3.fromRGB(255,99,71),
+	Increment = 1,
+	ValueName = "Walkspeed",
+	Callback = function(s)
+        Game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+	end    
+})
+
+PlayerTab:AddSlider({
+	Name = "JumpPower",
+	Min = 50,
+	Max = 200,
+	Default = 50,
+	Color = Color3.fromRGB(127,255,212),
+	Increment = 1,
+	ValueName = "JumpPower",
+	Callback = function(s)
+        Game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+	end    
+})
+
+local Section = PlayerTab:AddSection({
+	Name = ""
+})
+
+PlayerTab:AddLabel("Buttons")
+
+PlayerTab:AddButton({
+	Name = "Force Reset",
+	Callback = function()
+      		Game.Players.LocalPlayer.Character.Humanoid.Health = 0
+  	end    
+})
+
+--Fe Scripts--
+
+local FeTab = Window:MakeTab({
+	Name = "Fe Scripts",
+	Icon = "rbxassetid://11214714431",
+	PremiumOnly = false
+})
+
+FeTab:AddButton({
+	Name = "Fe Grammar",
+	Callback = function()
+		shared.CustomCorrections = {
+			["examplething12"] = "hello" -- if you say "examplething12" it will become hello
+		}
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/eosuwu/boblox/main/autogremer.lua"))()
+  	end    
+})
+
+FeTab:AddButton({
+	Name = "Click Fling",
+	Callback = function()
+		loadstring(game:HttpGetAsync("https://bit.ly/34oqvdH"))()
+  	end    
+})
+
+FeTab:AddButton({
+	Name = "Chat Translator",
+	Callback = function()
+		loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Legfena/Scripts/main/Chat%20Translator"))()
+  	end    
+})
+
+FeTab:AddButton({
+	Name = "Netless",
+	Callback = function()
+		loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Legfena/Scripts/main/Netless"))()
+  	end    
+})
+
+FeTab:AddButton({
+	Name = "Tp Tool",
+	Callback = function()
+		loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Legfena/Scripts/main/tpTool"))()
+  	end    
+})
+
+FeTab:AddButton({
+	Name = "Ragdoll Death",
+	Callback = function()
+		loadstring(game:HttpGetAsync(("https://pastebin.com/raw/KRbW6nNC"),true))()
+  	end    
+})
+
+FeTab:AddButton({
+	Name = "Telekinesis",
+	Callback = function()
+		loadstring(game:HttpGetAsync(("https://pastebin.com/raw/qtZcirVq"),true))()
+  	end    
+})
+
+FeTab:AddButton({
+	Name = "Walk On Walls",
+	Callback = function()
+		
+  	end    
+})
+
+FeTab:AddButton({
+	Name = "Show display names",
+	Callback = function()
+		loadstring(game:HttpGet('https://pastebin.com/raw/8BBikucB'))()
+  	end    
+})
+
+FeTab:AddButton({
+	Name = "R15 Invisibility",
+	Callback = function()
+		loadstring(game:HttpGet('https://pastebin.com/raw/Y368tv7j'))()
+  	end    
+})
+
+
+--Fe GUIs
+
+local FeguiTab = Window:MakeTab({
+	Name = "Fe Guis",
+	Icon = "rbxassetid://11214735712",
+	PremiumOnly = false
+})
+
+FeguiTab:AddLabel("Guis")
+
+FeguiTab:AddButton({
+	Name = "Teleport GUI",
+	Callback = function()
+		loadstring(game:HttpGet(("https://gist.githubusercontent.com/DagerFild/b4776075a0d26ef04394133ee6bd2081/raw/0ed51ac94057d2d9a9f00e1b037b9011c76ca54a/tpGUI"),true))()
+  	end    
+})
+
+FeguiTab:AddButton({
+	Name = "Fling GUI",
+	Callback = function()
+		loadstring(game:HttpGet(("https://pastebin.com/raw/FhaCvvzC"),true))()
+  	end    
+})
+
+FeguiTab:AddButton({
+	Name = "Job ID Grabber",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Legfena/Scripts/main/jobid",true))()
+  	end    
+})
+
+FeguiTab:AddButton({
+	Name = "Server Finder",
+	Callback = function()
+		loadstring(game:HttpGet("https://www.scriptblox.com/raw/Server-Browser_80", true))();
+  	end    
+})
+
+FeguiTab:AddButton({
+	Name = "Stream Sniper",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Blissful4992/Miscellaneous/main/StreamSniper.lua", true))();
+  	end    
+})
+
+FeguiTab:AddButton({
+	Name = "Chat Hax",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Legfena/Scripts/main/Chat%20hax%20v3",true))()
+  	end   
+})
+
+FeguiTab:AddButton({
+	Name = "Auto Clicker",
+	Callback = function()
+		loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/JustEzpi/ROBLOX-Scripts/main/ROBLOX_AutoClicker"))()
+  	end    
+})
+
+FeguiTab:AddButton({
+	Name = "Chat Bypasser",
+	Callback = function()
+		getgenv().method = "fn" -- put the two letters (method) here. available ones are pq, bj, dq and hu. fn is recommended by default.
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/sy-nn/synergy/additional/betterbypasser",true))()
+  	end    
+})
+
+FeguiTab:AddButton({
+	Name = "FE Headless",
+	Callback = function()
+		loadstring(game:HttpGet("https://the-shed.dev/scripts/headless.lua", true))()
+  	end    
+})
+
+local Section = FeguiTab:AddSection({
+	Name = ""
+})
+
+--[[
+Name = <string> - The name of the section.
+]]
+
+FeguiTab:AddLabel("Hubs")
+
+FeguiTab:AddButton({
+	Name = "Ultimate Trolling GUI ",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Blukez/Scripts/main/UTG%20V3%20RAW"))()
+  	end    
+})
+
+FeguiTab:AddButton({
+	Name = "X2Hub Beta",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Legfena/Scripts/main/X2Hub",true))()
+  	end    
+})
+
+FeguiTab:AddButton({
+	Name = "Simplity",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/HeyGyt/s1mplity/main/main"))()
+  	end    
+})
+
+FeguiTab:AddButton({
+	Name = "VHub",
+	Callback = function()
+		loadstring(game:HttpGet(('https://raw.githubusercontent.com/itsyaboivincentt5315/script/main/VHub.txt'),true))()
+  	end    
+})
+
+FeguiTab:AddButton({
+	Name = "NightmareHub",
+	Callback = function()
+		loadstring(game:HttpGet(('https://pastefy.ga/lrjtanrp/raw'),true))()
+  	end    
+})
+
+FeguiTab:AddButton({
+	Name = "Convertware",
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/specowos/CONVERTWARE/main/UI/main.lua',true))()
+  	end    
+})
+
+FeguiTab:AddButton({
+	Name = "Nullware",
+	Callback = function()
+		getgenv().Theme = "Blue" -- To change the UI Theme, set this to one of the following options: "Red", "Purple", "Blue", "Green", "Yellow"
+loadstring(game:HttpGet("https://gist.githubusercontent.com/M6HqVBcddw2qaN4s/2d722888a388017c18028cd434c43a25/raw/dcccf1027fe4b90780e47767aaf584389c9d7771/EULma3fU90PUOKUn?identifier=".. (function()local a=""for b=1,256 do local c=math.random(1,3)a=a..string.char(c==1 and math.random(48,57)or c==2 and math.random(97,122)or c==3 and math.random(65,90))end;return a end)()))()
+  	end    
+})
+
+FeguiTab:AddButton({
+	Name = "Coolgui V2",
+	Callback = function()
+		loadstring(game:GetObjects("rbxassetid://9827584846")[1].Source)()
+  	end    
+})
+
+FeguiTab:AddButton({
+	Name = "Pendulum HUB",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Tescalus/Pendulum-Hubs-Source/main/Pendulum%20Hub%20V5.lua"))()
+  	end    
+})
+
+FeguiTab:AddButton({
+	Name = "Universal GUI",
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/Dvrknvss/UniversalFEScriptHub/main/Script'))()
+  	end    
+})
+
+FeguiTab:AddButton({
+	Name = "Lost Point",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/JunglePush/LostPoint/main/LostPointScript"))()
+  	end    
+})
+
+FeguiTab:AddButton({
+	Name = "Harked",
+	Callback = function()
+		loadstring(game:HttpGet(("https://pastebin.com/raw/s3KSr9qw"),true))()
+  	end    
+})
+
+FeguiTab:AddButton({
+	Name = "Marine HUB",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Hypious/Marine-Hub/main/Main"))()
+  	end    
+})
+
+FeguiTab:AddButton({
+	Name = "Sniff HUB",
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/2dgeneralspam1/Sniff-Hub/main/Sniff%20Hub'))()
+  	end    
+})
+
+
+--Games--
+
+
+
+local GameTab = Window:MakeTab({
+	Name = "Games",
+	Icon = "rbxassetid://11214818832",
+	PremiumOnly = false
+})
+
+GameTab:AddParagraph("Universal","These scripts work on nearly all shooting games.")
+
+GameTab:AddButton({
+	Name = "Aimware",
+	Callback = function()
+		loadstring(game:HttpGet"https://raw.githubusercontent.com/Wheeleee/AIMWARE/main/Startup")()
+  	end    
+})
+
+
+GameTab:AddButton({
+	Name = "Universal Hitbox Expander",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Legfena/Roblox-Fly/main/Hitbox%20Expander", true))();
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Universal Silent Aim",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Averiias/Universal-SilentAim/main/main.lua"))()
+  	end    
+})
+
+local Section = GameTab:AddSection({
+	Name = ""
+})
+
+GameTab:AddParagraph("Starving Artists","Game ID: 8916037983")
+
+GameTab:AddButton({
+	Name = "Starving Artists GUI",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Jeux45/Starving-Artist-script/main/Script", true))()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Paint Stealer",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Legfena/Roblox-Fly/main/Starving%20Artists", true))()
+  	end    
+})
+
+local Section = GameTab:AddSection({
+	Name = ""
+})
+
+GameTab:AddParagraph("Build A Boat","Game ID: 537413528")
+
+GameTab:AddButton({
+	Name = "Ruby HUB",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Deni210/BABFT/main/Ruby%20Hub", true))()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Vynixius BaBFT",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Build%20A%20Boat%20For%20Treasure/Script.lua"))()	
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Red Hub",
+	Callback = function()
+		_G.RedGUI = true
+		_G.Theme = "Aqua" -- Must disable or remove _G.RedGUI to use
+		--Themes: Light, Dark, Mocha, Aqua and Jester
+		_G.V3rmillion = true
+		
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/BuildABoatForTreasure.lua"))()	
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Auto Build",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Build%20A%20Boat%20For%20Treasure/Script.lua"))()
+  	end    
+})
+
+local Section = GameTab:AddSection({
+	Name = ""
+})
+
+GameTab:AddParagraph("Arsenal","Game ID: 286090429")
+
+GameTab:AddButton({
+	Name = "Bolts HUB",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/fusiongreg/BoltsHubV5/main/BoltsHubV5"))()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "HameWare",
+	Callback = function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/MQLCAsnx"))()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "DexHub",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/HonestlyDex/DexHub/main/V3.lua"))()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Procom",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Loodie2021/Procom-Arsenal-Script/main/script.lua"))()
+  	end    
+})
+
+local Section = GameTab:AddSection({
+	Name = ""
+})
+
+GameTab:AddParagraph("Da Hood","Game ID: 2788229376")
+
+GameTab:AddButton({
+	Name = "Late",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Impulseonyoutube/scripts/main/dahood"))()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Con.txt",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/JsfuayASbsfuWGakCmhzVwaKJsfuayASbsfuWGa/dasdasdasdas/main/ConTXT"))()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Eternal",
+	Callback = function()
+		loadstring(game:HttpGet(('https://raw.githubusercontent.com/JsfuayASbsfuWGakCmhzVwaKJsfuayASbsfuWGa/EternalJNshAIw-mpaAkw-VkbgA/main/eternal.lua')))()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Nixware",
+	Callback = function()
+		loadstring(game:HttpGet('https://ekso.gq/raw/relases/nixware.lua'))()
+  	end    
+})
+
+
+GameTab:AddButton({
+	Name = "Vortex",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/ImagineProUser/vortexdahood/main/vortex", true))()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Pluto",
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/SpacedYes/lua-projects/master/DaHood.Lua'))()
+  	end    
+})
+
+local Section = GameTab:AddSection({
+	Name = ""
+})
+
+GameTab:AddParagraph("Mad City","Game ID: 1224212277")
+
+GameTab:AddButton({
+	Name = "Ruby",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Deni210/madcity/main/Ruby%20Hub%20v1.3", true))()	
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Auto Farm",
+	Callback = function()
+		getgenv().doclub = false -- set to true if u wanna rob the club (can be buggy)
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/Brizzy9999/scripts/main/madcityfarm.lua'))()
+  	end    
+})
+
+local Section = GameTab:AddSection({
+	Name = ""
+})
+
+GameTab:AddParagraph("Murder Mystery 2","Game ID: 142823291")
+
+GameTab:AddButton({
+	Name = "Xennyware",
+	Callback = function()
+		repeat wait() until game.Players.LocalPlayer.Character
+		url = "https://raw.githubusercontent.com/xennyy/Xenny-Ware/main/loader.lua"
+		loadstring(game:HttpGet(url))() 
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Eclipse",
+	Callback = function()
+		getgenv().mainKey = "nil"
+ 
+		local a,b,c,d,e=loadstring,request or http_request or (http and http.request) or (syn and syn.request),assert,tostring,"https://api.eclipsehub.xyz/auth"c(a and b,"Executor not Supported")a(b({Url=e.."\?\107e\121\61"..d(mainKey),Headers={["User-Agent"]="Eclipse"}}).Body)()	
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Drifter's",
+	Callback = function()
+		loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Drifter0507/GUIS/main/MURDER%20MYSTERY%202", true))();
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Vynixius",
+	Callback = function()
+		loadstring(game:GetObjects("rbxassetid://4001118261")[1].Source)()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Space HUB",
+	Callback = function()
+		loadstring(game:HttpGet(("https://raw.githubusercontent.com/Lucasfin000/SpaceHub/main/SpaceHub.lua")))()
+  	end    
+})
+
+local Section = GameTab:AddSection({
+	Name = ""
+})
+
+GameTab:AddParagraph("Phantom Forces","Game ID: 292439477")
+
+GameTab:AddButton({
+	Name = "Ceri",
+	Callback = function()
+		loadstring(game:HttpGet("https://ducksite.xyz/ceri/main.lua"))()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Hitbox Expander",
+	Callback = function()
+		local Size=8
+		local Target="Torso"
+		game.RunService.RenderStepped:Connect(function()
+			for _,a in pairs(game.Workspace.Players:GetChildren())do
+				if a.Name~=game.Players.LocalPlayer.Team.Name then
+					for _,b in pairs(a:GetChildren())do
+						b[Target].Size=Vector3.new(Size,Size,Size)
+					end
+				end
+			end
+		end) end
+})
+
+GameTab:AddButton({
+	Name = "Hyper X",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Mick-gordon/fsfhiwhwio-pgweijogwejpwgekjowgkjo/main/README.md", true))()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Box  Tracer ESP",
+	Callback = function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/nF4pQUn6", true))()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Highlight ESP",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Legfena/Scripts/main/Highlight%20pf",true))()
+  	end    
+})
+
+
+GameTab:AddButton({
+	Name = "Unlock All",
+	Callback = function()local ts = game:GetService("TeleportService")
+
+local p = game:GetService("Players").LocalPlayer
+
+ts:Teleport(game.PlaceId, p)
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/VoidMasterX/Releases/main/PF_UnlockAll.lua"))();
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Pishy Pampor Legit Aim",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Legfena/Scripts/main/Pishy%20Pampor",true))()
+  	end    
+})
+
+local Section = GameTab:AddSection({
+	Name = ""
+})
+
+GameTab:AddParagraph("Bee Swarm Simulator","Game ID: 1537690962")
+
+GameTab:AddButton({
+	Name = "Histy",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Legfena/Scripts/main/Histy",true))()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "KocMoc",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Boxking776/kocmoc/main/kocmoc-remastered.lua"))()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Andromeda",
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/max0mind/lua/main/loader.lua'))()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Pepsi Swarm",
+	Callback = function()
+		loadstring(game:GetObjects("rbxassetid://4384103988")[0X1].Source)("Pepsi Swarm")
+  	end    
+})
+
+local Section = GameTab:AddSection({
+	Name = ""
+})
+
+GameTab:AddLabel("Natural Disaster Survival")
+
+GameTab:AddButton({
+	Name = "NDS Utils",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/2dgeneralspam1/scripts-and-stuff/master/scripts/LoadstringUjHI6RQpz2o8", true ))()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "NDS Hub",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/2dgeneralspam1/scripts-and-stuff/master/scripts/LoadstringUjHI6RQpz2o8", true))()
+  	end    
+})
+
+local Section = GameTab:AddSection({
+	Name = ""
+})
+
+GameTab:AddParagraph("Doors","Job ID: 6516141723")
+
+GameTab:AddButton({
+	Name = "Doors V4",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/OminousVibes-Exploit/Scripts/main/doors/main.lua"))()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Vynixius Doors",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Doors/Script.lua"))()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Ominous vibes",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/OminousVibes-Exploit/Scripts/main/doors/main.lua"))()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "D4RK Fucker",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/D4rk9690/My-scripts/main/Doorsgui"))()
+  	end    
+})
+
+local Section = GameTab:AddSection({
+	Name = ""
+})
+
+GameTab:AddParagraph("Jailbreak","Game ID: 606849621")
+
+GameTab:AddButton({
+	Name = "Diamond HUB",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/BloxiYT/Diamond/main/AdoptMe"))()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Ice Tray V3",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/piglex9/icetray3/main/latest.lua"))()
+  	end    
+})
+
+GameTab:AddButton({
+	Name = "Subs Hub - Keyless",
+	Callback = function()
+		pcall(function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/Kw6m/Subbers-scripts/main/jailbreak", true))()
+		  end)
+  	end    
+})
+
+local Section = GameTab:AddSection({
+	Name = ""
+})
+
+GameTab:AddParagraph("Evade","Game ID: 9872472334")
+
+GameTab:AddButton({
+	Name = "Hydra Hub",
+	Callback = function()
+		loadstring(game:HttpGet(("https://raw.githubusercontent.com/Robobo2022/script/main/Main.lua"), true))()	
+  	end    
+})
+
+--Hubs--
+
+local Tab = Window:MakeTab({
+	Name = "Hubs",
+	Icon = "rbxassetid://11214928929",
+	PremiumOnly = false
+})
+
+GameTab:AddButton({
+	Name = "Unfair",
+	Callback = function()
+		loadstring(game:HttpGet(('https://raw.githubusercontent.com/rblxscriptsnet/unfair/main/rblxhub.lua'),true))()
+  	end    
+})
+
+local Section = GameTab:AddSection({
+	Name = ""
+})
+
+GameTab:AddButton({
+	Name = "V.G",
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub'))()	
+  	end    
+})
+
+local Section = GameTab:AddSection({
+	Name = ""
+})
+
+GameTab:AddButton({
+	Name = "Warrior",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/WarriorCrystal/WarriorHub/main/Load.lua"))()
+  	end    
+})
+
+local Section = GameTab:AddSection({
+	Name = ""
+})
+
+GameTab:AddButton({
+	Name = "Lazy",
+	Callback = function()
+		    repeat wait() until game:IsLoaded()
+
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/LioK251/RbScripts/main/lazyhub.lua"))() 
+  	end    
+})
+
+--Animations--
+
+local AnimTab = Window:MakeTab({
+	Name = "Animations",
+	Icon = "rbxassetid://11214950425",
+	PremiumOnly = false
+})
+
+AnimTab:AddButton({
+	Name = "Emotes - R15",
+	Callback = function()	
+
+		OrionLib:MakeNotification({
+			Name = "Press Comma",
+			Content = "Press comma to make the ui appear",
+			Image = "rbxassetid://4483345998",
+			Time = 5
+		})
+
+		loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Gi7331/scripts/main/Emote.lua"))()
+  	end    
+})
+
+AnimTab:AddButton({
+	Name = "Winged Master - R6",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Legfena/Scripts/main/Winged",true))()
+  	end    
+})
+
+AnimTab:AddButton({
+	Name = "Da Feets - R6",
+	Callback = function()
+		loadstring(game:HttpGet('https://gist.githubusercontent.com/1BlueCat/7291747e9f093555573e027621f08d6e/raw/23b48f2463942befe19d81aa8a06e3222996242c/FE%2520Da%2520Feets'))()
+  	end    
+})
+
+AnimTab:AddButton({
+	Name = "Human Car - R6",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Legfena/Scripts/main/Car",true))()
+  	end    
+})
+
+AnimTab:AddButton({
+	Name = "Rickroll Dance - R6",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Legfena/Scripts/main/Ricky",true))()
+  	end    
+})
+
+AnimTab:AddButton({
+	Name = "Sad Fly - R6",
+	Callback = function()
+
+		OrionLib:MakeNotification({
+			Name = "Press F",
+			Content = "Press F To be sad :(",
+			Image = "rbxassetid://4483345998",
+			Time = 5
+		})
+
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Legfena/Scripts/main/Sad%20fly",true))()
+  	end    
+})
+
+--UI--
+
+local CredTab = Window:MakeTab({
+	Name = "Credits",
+	Icon = "rbxassetid://11215205029",
+	PremiumOnly = false
+})
+
+CredTab:AddLabel("GUI By: GeGUmacHo/Sharikov#3773")
+
+local Section = CredTab:AddSection({
+	Name = "Try the previous versions, The old one is open source"
+})
+
+local Section = CredTab:AddSection({
+	Name = ""
+})
+
+
+
+CredTab:AddLabel("Contact me on discord and suggest me scripts!")
+
+
+OrionLib:Init()
