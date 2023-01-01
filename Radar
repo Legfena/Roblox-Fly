@@ -26,7 +26,7 @@ _G.RadarSettings = {
     OFFSCREEN_TRANSPARENCY = 0.3; -- Transparency of offscreen markers
     USE_FALLBACK = false; -- Enables an emergency "fallback mode" for StreamingEnabled games
     USE_QUADS = true; -- Displays radar markers as arrows instead of dots 
-    USE_TEAM_COLORS = false; -- Uses a team's TeamColor for marker colors
+    USE_TEAM_COLORS = true; -- Uses a team's TeamColor for marker colors
     VISIBLITY_CHECK = false; -- Makes markers that are not visible slightly transparent 
     
     --- Theme
