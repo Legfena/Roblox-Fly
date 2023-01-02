@@ -1,0 +1,2 @@
+Keybind = 'F' -- This is usually defaulted to F. However, you can change to whatever you want.
+loadstring(game:HttpGet("https://raw.githubusercontent.com/synnyyy/synergy/additional/betterbypasser",true))()
